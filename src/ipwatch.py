@@ -12,8 +12,8 @@ every two minutes. On detection in a change of the public address,
 a notification is invoked.
 
 For dependencies -
-> pip install pyobjc-framework-Cocoa
-> pip install pyObjC
+$ pip install pyobjc-framework-Cocoa
+$ pip install pyObjC
 """
 
 from Foundation import *
@@ -46,7 +46,7 @@ class AppDelegate(NSObject):
         """
         Sub-menu "Details" which displays information such as hostname, ASN, etc.
         """
-        print "in infoMenu()"
+      
         self.detailMenuItem = NSMenuItem.alloc().initWithTitle_action_keyEquivalent_("Details...", None, '')
         detailSubMenu = NSMenu.alloc().init()
         
@@ -98,8 +98,6 @@ class AppDelegate(NSObject):
         # probe periodic check timer
         addedDate = self.startTime.dateByAddingTimeInterval_(30)
 
-        print "now date:" + str(self.startTime)
-        print "Added date:" + str(addedDate)
         self.timer = NSTimer.alloc().initWithFireDate_interval_target_selector_userInfo_repeats_(
                                                 addedDate, PERIODIC_CHECK_INTERVAL, self, 
                                                 'checkTimerCallback:', None, True)
@@ -150,7 +148,6 @@ class IPWatchApp :
     prevIFaceAddrs = []
 
     def __init__(self) :
-        #self.data = {u'loc': u'33.1000,122.9830', u'city': u'Tokyo', u'country': u'JP', u'region': u'Kanto', u'hostname': u'hn-10-010.level.ne.jp', u'ip': u'192.7.90.130', u'org': u'AS11111 NetVCOm Co.,Ltd.'}
         self.data = {'ip' : ''}
         app = NSApplication.sharedApplication()
         delegate = AppDelegate.alloc().init()
@@ -179,7 +176,6 @@ class IPWatchApp :
         if 'error' in self.data :
             self.data['ip'] = 'Error'
 
-        print self.data
 
     def sendNotification(self, title, body) :
         """
@@ -192,7 +188,6 @@ class IPWatchApp :
         center.deliverNotification_(notification)
 
     def updateNow(self) : 
-        print "In updateNow() " + self.data['ip']
         self.fetchIPDetails()
 
         currentIPAddress = self.data['ip']
