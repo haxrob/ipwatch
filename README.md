@@ -5,8 +5,8 @@ This could be useful to those using a VPN and would like to see the current publ
 The IP address and related information is fetched from the fantastic service https://ipinfo.io.
 
 Two methods for detection is so far supported -
-1) Monitor all local adaptors for any changes in the local address. On change, send request to ipinfo.io.
-2) Periodic requests to ipinfo.io to monitor any changes
+1) Monitor all local adaptors for any changes in the local address.
+2) Periodic requests to ipinfo.io to monitor a change in address. Currently set to ever two minutes which is within the free 24 hour quota for ipinfo.io. 
 
 ![Image](https://github.com/packetflare/ipwatch/blob/870b9e9eabe76cae25ca95a6ee76c01325cc4974/images/one.png)
 ![Image](https://github.com/packetflare/ipwatch/blob/870b9e9eabe76cae25ca95a6ee76c01325cc4974/images/two.png)
