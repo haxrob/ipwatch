@@ -6,7 +6,7 @@ The IP address and related information is fetched from the fantastic service htt
 
 Two methods for detection is so far supported -
 1) Monitor all local adaptors for any changes in the local address.
-2) Periodic requests to ipinfo.io to monitor a change in address. Currently set to ever two minutes which is within the free 24 hour quota for ipinfo.io. 
+2) Periodic requests to the external ipinfo.io service. This is set to trigger every two minutes to keep the number of requests under 1000 per 24 hour period (free quota for ipinfo.io)
 
 ![Image](https://github.com/packetflare/ipwatch/blob/870b9e9eabe76cae25ca95a6ee76c01325cc4974/images/one.png)
 ![Image](https://github.com/packetflare/ipwatch/blob/870b9e9eabe76cae25ca95a6ee76c01325cc4974/images/two.png)
@@ -27,5 +27,10 @@ To build stand alone execuable package -
 ```
 $ python src/build.py py2app
 ```
+## Ideas for improvements
+* Self hosted server as an alternative to using https://ipinfo.io
+* On detection of a change, have the option to disable traffic to prevent data leaks (for VPN users)
+* Various leak checks built in (i.e DNS leaks etc)
+
 ## License
 MIT
